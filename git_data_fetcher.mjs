@@ -9,6 +9,8 @@ const openSource = {
   githubUserName: process.env.GITHUB_USERNAME,
 };
 
+console.log(openSource);
+
 const query_pr = {
   query: `
 	query {
@@ -157,7 +159,7 @@ fetch(baseUrl, {
     cropped["closed"] = closed;
     cropped["merged"] = merged;
     cropped["totalCount"] = cropped["data"].length;
-
+    
     console.log("Fetching the Pull Request Data.\n");
     fs.writeFile(
       "./src/shared/opensource/pull_requests.json",
@@ -181,7 +183,7 @@ fetch(baseUrl, {
     const data = JSON.parse(txt);
     var cropped = { data: [] };
     cropped["data"] = data["data"]["user"]["issues"]["nodes"];
-
+    
     var open = 0;
     var closed = 0;
     for (var i = 0; i < cropped["data"].length; i++) {
@@ -287,7 +289,7 @@ fetch(baseUrl, {
       newProjects["data"].push(obj);
     }
 
-    console.log("Fetching the Pinned Projects Data.\n");
+    console.log("Fetching the Pinned Projects Data.\n", newProjects);
     fs.writeFile(
       "./src/shared/opensource/projects.json",
       JSON.stringify(newProjects),

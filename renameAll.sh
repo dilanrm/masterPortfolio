@@ -1,0 +1,1 @@
+find src -name "*.ts" -exec sh -c 'mv "$0" "${0%.ts}.tsx"' {} \;

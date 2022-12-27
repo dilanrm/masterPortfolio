@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./ToggleSwitch.scss";
-import { lightTheme } from "../../theme";
+import { lightTheme } from "../../theme.ts";
 import styled from "styled-components";
 
 export const ToggleDiv = styled.div`
